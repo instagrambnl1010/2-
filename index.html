@@ -216,12 +216,13 @@ footer{padding:28px 0 40px;color:var(--mute);font-size:14px;text-align:center}
 </script>
 <script>
 /* === НАЛАШТУВАННЯ: вставте свої значення === */
-var CFG = { PIXEL_ID: '1440445244649382', BOT_TOKEN: '8635143615:AAFiR9igTuhbgc1CBDypYC_zfYLcZOcDGHY', CHAT_ID: '5454617551' };
+var CFG = { PIXEL_ID: '1440445244649382', PIXEL_ID_2: '1824096408587221', BOT_TOKEN: '8635143615:AAFiR9igTuhbgc1CBDypYC_zfYLcZOcDGHY', CHAT_ID: '5454617551' };
 
 /* Meta Pixel */
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-if (CFG.PIXEL_ID) { fbq('init', CFG.PIXEL_ID); fbq('track', 'PageView'); }
-function track(ev, data){ if (CFG.PIXEL_ID) fbq('track', ev, data); }
+[CFG.PIXEL_ID, CFG.PIXEL_ID_2].forEach(function(id){ if (id) fbq('init', id); });
+if (CFG.PIXEL_ID || CFG.PIXEL_ID_2) fbq('track', 'PageView');
+function track(ev, data){ if (CFG.PIXEL_ID || CFG.PIXEL_ID_2) fbq('track', ev, data); }
 
 /* Ціна в події */
 var PRICE = 1189;
@@ -265,5 +266,6 @@ f.addEventListener('submit', function(e){
 });
 </script>
 <noscript>Для замовлення потрібен JavaScript.</noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1824096408587221&ev=PageView&noscript=1"/></noscript>
 </body>
 </html>
